@@ -1,15 +1,15 @@
 export const skills = [
   {
     title: 'Programming',
-    items: ['C++', 'C#', 'Python', 'ShaderLab', 'GLSL', 'OOP', 'Algorithms', 'Debugging'],
+    items: ['C++', 'C#', 'Python', 'ShaderLab', 'GLSL', 'Algorithms', 'Debugging'],
   },
   {
     title: 'Game engines',
-    items: ['Unity', 'ECS', 'Rendering', 'UGUI', '3D Math', 'Profiling', 'Optimization'],
+    items: ['Unity', 'ECS', 'Rendering', '3D Math', 'Profiling', 'Optimization'],
   },
   {
     title: 'Tools & pipeline',
-    items: ['Git', 'Perforce', 'Blender', 'Photoshop', 'Pipeline Automation', 'Trello'],
+    items: ['Blender', 'Photoshop', 'Tool Development', 'Git', 'Perforce', 'Jira'],
   },
 ];
 

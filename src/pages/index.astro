@@ -11,7 +11,7 @@ import { projects, skills } from '../data/portfolio';
   description="Portfolio of Nofer, a technical artist and developer focused on real-time rendering, game tools, and graphics programming."
 >
   <header class="site-header">
-    <a class="wordmark" href="#top" aria-label="Nofer, home">NOFER<span>.</span></a>
+    <a class="wordmark" href="#top" aria-label="Nofer, home">NOFER</a>
     <nav aria-label="Main navigation">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
@@ -23,30 +23,29 @@ import { projects, skills } from '../data/portfolio';
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow">Technical artist · Developer</p>
-        <h1 id="hero-title">I build tools and visuals for <em>real-time worlds.</em></h1>
+        <p class="eyebrow">Graphics Developer · Technical artist</p>
+        <h1 id="hero-title">I build <em>technical solutions</em> for your creativity</h1>
         <p class="hero-intro">
-          I’m Nofer, a computer science student at Boston University working across graphics programming,
-          game development, and technical art.
+          Hi! I’m Nofer, a graduate student in <a href="https://www.cis.upenn.edu/mse-in-cggt/">
+            Computer Graphics and Game Technology (CGGT)
+          </a> at the <img class="hero-intro-logo" src="/images/upenn.png" alt="" /><a href="https://www.upenn.edu/">
+            University of Pennsylvania
+          </a>, and a former Technical Artist Intern at <img class="hero-intro-logo" src="/images/LilithGames_no_sub.png" alt="" /><a href="https://www.lilith.com/?locale=en_US">
+            Lilith Games
+          </a>.
         </p>
         <div class="hero-actions">
           <a class="button button-dark" href="#work">Explore my work</a>
           <a class="text-link" href="/resume.pdf">View résumé <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <img src="/images/black-hole-hero.png" alt="" />
-        <span class="orbit orbit-one"></span>
-        <span class="orbit orbit-two"></span>
-      </div>
-      <p class="hero-index">01 / Portfolio</p>
     </section>
 
     <section class="section" id="about">
       <SectionHeading
-        eyebrow="Capabilities"
-        title="Code, art, and the space between."
-        description="My toolkit spans low-level rendering, gameplay systems, content tools, and the production pipelines that connect them."
+        eyebrow="SKILLS"
+        title="Code, design, and the space between."
+        description="My study spans real-time rendering, gameplay systems, tool development, and the production pipelines that connect them."
       />
       <div class="skill-grid">
         {skills.map((skill, index) => (
@@ -85,7 +84,7 @@ import { projects, skills } from '../data/portfolio';
       <SectionHeading
         eyebrow="Selected work"
         title="Experiments with a purpose."
-        description="A mix of rendering research, rapid game development, and visual design."
+        description="A mix of rendering research, rapid game prototyping, and visual design."
       />
       <div class="project-grid">
         {projects.map((project) => <ProjectCard {...project} />)}
@@ -93,9 +92,9 @@ import { projects, skills } from '../data/portfolio';
     </section>
 
     <section class="contact-section" id="contact">
-      <p class="eyebrow">Let’s make something</p>
+      <p class="eyebrow">Let’s build something</p>
       <h2>Have an interesting problem?</h2>
-      <p>I’m seeking technical art, gameplay programming, and engine development opportunities in North America and Europe.</p>
+      <p>I’m seeking technical art, engine development, and gameplay programming opportunities in North America and Europe.</p>
       <a class="button button-light" href="mailto:noferssxue@gmail.com">noferssxue@gmail.com</a>
       <div class="social-links">
         <a href="https://github.com/nofer-x">GitHub ↗</a>
