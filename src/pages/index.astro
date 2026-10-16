@@ -24,9 +24,9 @@ import { projects, skills } from '../data/portfolio';
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="eyebrow">Graphics Developer · Technical artist</p>
-        <h1 id="hero-title">I build <em>technical solutions</em> for your creativity</h1>
+        <h1 id="hero-title">Hi,  I'm  <em>Nofer</em></h1>
         <p class="hero-intro">
-          Hi! I’m Nofer, a graduate student in <a href="https://www.cis.upenn.edu/mse-in-cggt/">
+          I am a graduate student in <a href="https://www.cis.upenn.edu/mse-in-cggt/">
             Computer Graphics and Game Technology (CGGT)
           </a> at the <img class="hero-intro-logo" src="/images/upenn.png" alt="" /><a href="https://www.upenn.edu/">
             University of Pennsylvania
@@ -44,7 +44,7 @@ import { projects, skills } from '../data/portfolio';
     <section class="section" id="about">
       <SectionHeading
         eyebrow="SKILLS"
-        title={"Code, design,\nand the space between."}
+        title={"Technical  solutions\n for  your  creativity"}
         description="My study spans real-time rendering, gameplay systems, tool development, and the production pipelines that connect them."
       />
       <div class="skill-grid">
@@ -59,7 +59,7 @@ import { projects, skills } from '../data/portfolio';
     </section>
 
     <section class="section experience-section" id="experience">
-      <SectionHeading eyebrow="Experience" title="Building for production." />
+      <SectionHeading eyebrow="Experience" title={"Tested  in  production"} />
       <div class="experience-list">
         <article class="experience-item">
           <p class="experience-year">2025</p>
@@ -89,8 +89,8 @@ import { projects, skills } from '../data/portfolio';
 
     <section class="section work-section" id="work">
       <SectionHeading
-        eyebrow="Selected work"
-        title={"Experiments\nwith a purpose."}
+        eyebrow="Projects"
+        title={"Honed  through  practice"}
         description="A mix of rendering research, rapid game prototyping, and visual design."
       />
       <div class="project-grid">
@@ -99,13 +99,19 @@ import { projects, skills } from '../data/portfolio';
     </section>
 
     <section class="contact-section" id="contact">
-      <p class="eyebrow">Let’s build something</p>
-      <h2>Have an interesting problem?</h2>
+      <p class="eyebrow">Have an interesting problem?</p>
+      <h2>Let’s  build  something</h2>
       <p>I’m seeking technical art, engine development, and gameplay programming opportunities in North America and Europe.</p>
       <a class="button button-light" href="mailto:noferssxue@gmail.com">noferssxue@gmail.com</a>
       <div class="social-links">
-        <a href="https://github.com/nofer-x">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/nofer-xue">LinkedIn ↗</a>
+        <a href="https://github.com/nofer-x">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+          GitHub ↗
+        </a>
+        <a href="https://www.linkedin.com/in/nofer-xue">
+          <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+          LinkedIn ↗
+        </a>
       </div>
     </section>
   </main>
@@ -114,4 +120,75 @@ import { projects, skills } from '../data/portfolio';
     <p>© {new Date().getFullYear()} Nofer Xue</p>
     <a href="#top">Back to top ↑</a>
   </footer>
+
+  <script>
+    const scrollSections: HTMLElement[] = Array.from(
+      document.querySelectorAll<HTMLElement>('main > section, body > footer')
+    );
+    const reducedMotion: MediaQueryList = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const wheelThreshold: number = 24;
+    const transitionDuration: number = 900;
+    let accumulatedDelta: number = 0;
+    let wheelLocked: boolean = false;
+
+    function getClosestSectionIndex(): number {
+      let closestIndex: number = 0;
+      let closestDistance: number = Number.POSITIVE_INFINITY;
+
+      for (let index: number = 0; index < scrollSections.length; index += 1) {
+        const distance: number = Math.abs(scrollSections[index].getBoundingClientRect().top);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      }
+
+      return closestIndex;
+    }
+
+    function navigateByWheel(direction: number): void {
+      const currentIndex: number = getClosestSectionIndex();
+      const targetIndex: number = Math.min(
+        Math.max(currentIndex + direction, 0),
+        scrollSections.length - 1
+      );
+
+      accumulatedDelta = 0;
+
+      if (targetIndex === currentIndex) {
+        return;
+      }
+
+      wheelLocked = true;
+      scrollSections[targetIndex].scrollIntoView({
+        behavior: reducedMotion.matches ? 'auto' : 'smooth',
+        block: 'start',
+      });
+
+      window.setTimeout((): void => {
+        wheelLocked = false;
+      }, reducedMotion.matches ? 0 : transitionDuration);
+    }
+
+    window.addEventListener('wheel', (event: WheelEvent): void => {
+      if (event.ctrlKey || scrollSections.length < 2) {
+        return;
+      }
+
+      event.preventDefault();
+
+      if (wheelLocked) {
+        return;
+      }
+
+      accumulatedDelta += event.deltaY;
+
+      if (Math.abs(accumulatedDelta) < wheelThreshold) {
+        return;
+      }
+
+      navigateByWheel(accumulatedDelta > 0 ? 1 : -1);
+    }, { passive: false });
+  </script>
 </BaseLayout>

@@ -17,6 +17,12 @@ const { title, description } = Astro.props;
     <meta name="description" content={description} />
     <meta name="theme-color" content="#f1efe9" />
     <title>{title}</title>
+    <script
+      is:inline
+      defer
+      src="https://kit.fontawesome.com/b6810b08c6.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <slot />
