@@ -287,9 +287,80 @@ h1 em { font-style: normal; font-weight: 500; }
 }
 
 .project-card:hover img { filter: grayscale(0) contrast(1); transform: scale(1.02); }
+.project-card:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 .project-copy { padding: 24px 0 0; }
 .project-copy h3 { font-size: 1.35rem; font-weight: 500; margin-bottom: 10px; }
 .project-copy p { color: var(--muted); max-width: 590px; min-height: 52px; }
+
+@media (max-height: 820px) and (min-width: 801px) {
+  .work-section .section-heading {
+    margin-bottom: 24px;
+  }
+
+  .project-grid {
+    border-top: 0;
+    gap: 16px 24px;
+  }
+
+  .project-card {
+    border: 1px solid var(--line);
+    display: block;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+  }
+
+  .project-image-wrap {
+    height: 100%;
+  }
+
+  .project-copy {
+    background: linear-gradient(to top, rgba(10, 10, 10, .98) 65%, rgba(10, 10, 10, .82));
+    bottom: 0;
+    color: var(--paper);
+    height: 100%;
+    left: 0;
+    padding: 17px 20px;
+    position: absolute;
+    right: 0;
+    transform: translateY(calc(100% - 60px));
+    transition: transform 320ms cubic-bezier(.2, .75, .25, 1);
+  }
+
+  .project-card:hover .project-copy,
+  .project-card:focus-visible .project-copy {
+    transform: translateY(0);
+  }
+
+  .project-card:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  .project-copy h3 {
+    color: var(--paper);
+    font-size: 1.15rem;
+    margin-bottom: 14px;
+  }
+
+  .project-copy p {
+    color: #d0d0d0;
+    display: -webkit-box;
+    font-size: .82rem;
+    line-height: 1.45;
+    margin-bottom: 14px;
+    min-height: 0;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  .project-copy .tags li {
+    border-color: #666;
+    color: var(--paper);
+    font-size: .62rem;
+  }
+}
 
 .contact-section {
   background: var(--ink);

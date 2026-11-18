@@ -36,8 +36,8 @@ export const projects = [
     tags: ['Unity', 'C#', 'HLSL', 'Collaboration'],
   },
   {
-    title: 'Design Works',
-    description: 'Logo, album cover, identity package, and editorial design work created during college.',
+    title: 'DCC & Design Works',
+    description: '3D rendering, logo design, and editorial design work created during my free time.',
     image: '/images/logo-design.png',
     alt: 'A selection of logo design work',
     tags: ['Photoshop', 'Graphic Design'],

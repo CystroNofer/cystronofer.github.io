@@ -12,7 +12,7 @@ interface Props {
 const { title, description, image, alt, tags } = Astro.props;
 ---
 
-<article class="project-card">
+<article class="project-card" tabindex="0">
   <div class="project-image-wrap">
     <img src={image} alt={alt} loading="lazy" />
   </div>
